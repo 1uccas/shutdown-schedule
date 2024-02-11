@@ -1,5 +1,6 @@
 import tkinter as tkr
 import customtkinter as ct
+import os
 
 windows = tkr.Tk() 
 windows.geometry("400x400")
@@ -9,9 +10,10 @@ windows.configure(bg="black")
 def capValue():
     try:
         e_text=int(entry.get())
+        os.system(f"shutdown -s -t {e_text}")
         print(e_text)
     except ValueError as Error:
-        print(f"Encontramos um problema em seu codigo-> {Error}")
+        print(f"Encontramos um problema em seu codigo -> {Error}")
     
 label = ct.CTkLabel(master=windows, text="Shutdown in...")
 label.place(relx=0.5, rely=0.3, anchor="center")
