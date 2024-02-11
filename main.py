@@ -10,8 +10,10 @@ windows.configure(bg="black")
 def capValue():
     try:
         e_text=int(entry.get())
-        os.system(f"shutdown -s -t {e_text}")
+        valueConvert = int(e_text * 60)
+        os.system(f"shutdown -s -t {valueConvert}")
         print(e_text)
+        exit()
     except ValueError as Error:
         print(f"Encontramos um problema em seu codigo -> {Error}")
     
