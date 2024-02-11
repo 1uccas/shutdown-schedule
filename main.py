@@ -13,7 +13,9 @@ def capValue():
         valueConvert = int(e_text * 60)
         os.system(f"shutdown -s -t {valueConvert}")
         print(e_text)
-        exit()
+        new_windows = ct.CTkToplevel()
+        new_windows.geometry("400x400")
+        new_windows.title("New Windows")
     except ValueError as Error:
         print(f"Encontramos um problema em seu codigo -> {Error}")
     
