@@ -7,8 +7,12 @@ windows.title("Shutdown Schedule")
 windows.configure(bg="black")
 
 def capValue():
-    e_text=entry.get()
-    print(e_text)
+    try:
+        e_text=int(entry.get())
+        print(e_text)
+    except ValueError as Error:
+        print(f"Encontramos um problema em seu codigo-> {Error}")
+    
 
 entry = ct.CTkEntry(master=windows, placeholder_text="Enter your time")
 entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
