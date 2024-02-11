@@ -13,13 +13,12 @@ def capValue():
     except ValueError as Error:
         print(f"Encontramos um problema em seu codigo-> {Error}")
     
-#my_font = ct.CTkFont(size=11, weight="bold", family="Algerian")
 label = ct.CTkLabel(master=windows, text="Shutdown in...")
 label.place(relx=0.5, rely=0.3, anchor="center")
 new_font = ct.CTkFont(family="Arial", size=35)
 label.configure(font=new_font)
 
-entry = ct.CTkEntry(master=windows, placeholder_text="Enter your time")
+entry = ct.CTkEntry(master=windows, placeholder_text="ex: 25min")
 entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
 
 button = ct.CTkButton(master=windows, corner_radius=10, text="Enter", command=capValue)
