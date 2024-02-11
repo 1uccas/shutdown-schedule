@@ -11,11 +11,19 @@ def capValue():
     try:
         e_text=int(entry.get())
         valueConvert = int(e_text * 60)
-        os.system(f"shutdown -s -t {valueConvert}")
+        #os.system(f"shutdown -s -t {valueConvert}")
         print(e_text)
+        
         new_windows = ct.CTkToplevel()
         new_windows.geometry("400x400")
         new_windows.title("New Windows")
+        
+        buttonExit = ct.CTkButton(master=new_windows, corner_radius=10, text="Exit windows")
+        buttonExit.place(relx=0.3, rely=0.5, anchor=tkr.CENTER)
+        
+        buttonTurnOff = ct.CTkButton(master=new_windows, corner_radius=10, fg_color="darkred", text="Turn Off Shutdown")
+        buttonTurnOff.place(relx=0.7, rely=0.5, anchor=tkr.CENTER)
+        
     except ValueError as Error:
         print(f"Encontramos um problema em seu codigo -> {Error}")
     
