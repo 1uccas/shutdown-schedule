@@ -19,18 +19,18 @@ class Shutdown:
         self.tabview.tab("On").grid_columnconfigure(0, weight=1)
         self.tabview.tab("Off").grid_columnconfigure(0, weight=1)
         
-        label = ct.CTkLabel(master=self.windows, text="Shutdown in...")
+        label = ct.CTkLabel(master=self.tabview.tab("On"), text="Shutdown in...")
         label.place(relx=0.5, rely=0.3, anchor="center")
         new_font = ct.CTkFont(family="Arial", size=35)
         label.configure(font=new_font)
 
-        self.entry = ct.CTkEntry(master=self.windows, placeholder_text="ex: 25min")
+        self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         
-        self.boxText = ct.CTkTextbox(self.windows, width=400, height=100)
+        self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100)
         self.boxText.place(relx=0.5, rely=0.8, anchor=tkr.CENTER)
 
-        button = ct.CTkButton(master=self.windows, corner_radius=10, text="Enter", command=self.capValue)
+        button = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
         
         self.windows.mainloop()
