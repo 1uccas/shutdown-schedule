@@ -26,6 +26,9 @@ class Shutdown:
         button = ct.CTkButton(master=self.windows, corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
         
+        self.tabview = ct.CTkTabview(master=self.windows, width=150, height=50)
+        self.tabview.place(relx=0.5, rely=0.1, anchor=tkr.CENTER)
+        
         self.windows.mainloop()
         
     def exitWindows(self):
@@ -39,10 +42,10 @@ class Shutdown:
         try:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
-            os.system(f"shutdown -s -t {valueConvert}")
+            #os.system(f"shutdown -s -t {valueConvert}")
             self.boxText.insert("0.0", f"Valor adicionado -> {e_text}\n")
             
-            new_windows = ct.CTkToplevel()
+            '''new_windows = ct.CTkToplevel()
             new_windows.geometry("400x400")
             new_windows.title("New Windows")
             
@@ -50,7 +53,7 @@ class Shutdown:
             buttonExit.place(relx=0.3, rely=0.5, anchor=tkr.CENTER)
             
             buttonTurnOff = ct.CTkButton(master=new_windows, corner_radius=10, fg_color="darkred", text="Turn Off Shutdown", command=self.TurnOff)
-            buttonTurnOff.place(relx=0.7, rely=0.5, anchor=tkr.CENTER)
+            buttonTurnOff.place(relx=0.7, rely=0.5, anchor=tkr.CENTER)'''
             
         except ValueError as Error:
             self.boxText.insert("end", f"Encontramos um problema em seu código -> {Error}\n")
