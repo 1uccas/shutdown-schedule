@@ -12,6 +12,13 @@ class Shutdown:
         self.windows.title("Shutdown Schedule")
         self.windows.configure(bg="black")
         
+        self.tabview = ct.CTkTabview(master=self.windows, width=400, height=400)
+        self.tabview.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
+        self.tabview.add("On")
+        self.tabview.add("Off")
+        self.tabview.tab("On").grid_columnconfigure(0, weight=1)
+        self.tabview.tab("Off").grid_columnconfigure(0, weight=1)
+        
         label = ct.CTkLabel(master=self.windows, text="Shutdown in...")
         label.place(relx=0.5, rely=0.3, anchor="center")
         new_font = ct.CTkFont(family="Arial", size=35)
@@ -25,9 +32,6 @@ class Shutdown:
 
         button = ct.CTkButton(master=self.windows, corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
-        
-        self.tabview = ct.CTkTabview(master=self.windows, width=150, height=50)
-        self.tabview.place(relx=0.5, rely=0.1, anchor=tkr.CENTER)
         
         self.windows.mainloop()
         
