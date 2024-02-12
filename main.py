@@ -8,7 +8,7 @@ class Shutdown:
 
     def windows(self):
         self.windows = tkr.Tk() 
-        self.windows.geometry("400x400")
+        self.windows.geometry("500x500")
         self.windows.title("Shutdown Schedule")
         self.windows.configure(bg="black")
         
@@ -19,6 +19,9 @@ class Shutdown:
 
         self.entry = ct.CTkEntry(master=self.windows, placeholder_text="ex: 25min")
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
+        
+        self.boxText = ct.CTkTextbox(self.windows, width=300, height=100)
+        self.boxText.pack()
 
         button = ct.CTkButton(master=self.windows, corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
@@ -30,14 +33,14 @@ class Shutdown:
 
     def TurnOff(self):
         os.system(f"shutdown -a")
-        print("Finish Shutdown")
+        self.boxText.insert("end", f"Finish Shutdown\n")
 
     def capValue(self):
         try:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
             os.system(f"shutdown -s -t {valueConvert}")
-            print(e_text)
+            self.boxText.insert("0.0", f"Valor adicionado -> {e_text}\n")
             
             new_windows = ct.CTkToplevel()
             new_windows.geometry("400x400")
@@ -50,7 +53,7 @@ class Shutdown:
             buttonTurnOff.place(relx=0.7, rely=0.5, anchor=tkr.CENTER)
             
         except ValueError as Error:
-            print(f"Encontramos um problema em seu código -> {Error}")
+            self.boxText.insert("end", f"Encontramos um problema em seu código -> {Error}\n")
     
 if __name__ == "__main__":
     shutdown = Shutdown()
