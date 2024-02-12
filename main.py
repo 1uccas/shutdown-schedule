@@ -66,10 +66,10 @@ class Shutdown:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
             #os.system(f"shutdown -s -t {valueConvert}")
-            self.boxText.insert("0.0", f"Valor adicionado -> {e_text}\n")
+            self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
         except ValueError as Error:
-            self.boxText.insert("end", f"Encontramos um problema em seu código -> {Error}\n")
+            self.boxText.insert("end", f"Error ~ {Error}\n")
     
 if __name__ == "__main__":
     shutdown = Shutdown()
