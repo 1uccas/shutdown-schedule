@@ -1,6 +1,7 @@
 import tkinter as tkr
 import customtkinter as ct
 import os
+from PIL import Image
 
 class Shutdown:
     def __init__(self):
@@ -12,6 +13,13 @@ class Shutdown:
         self.windows.title("Shutdown Schedule")
         self.windows.configure(bg="black")
         
+        #image
+        self.time = ct.CTkImage(dark_image=Image.open("img/time.png"), size=(50,50))
+        self.clock = ct.CTkImage(dark_image=Image.open("img/clock.png"), size=(50,50))
+        self.clock_2 = ct.CTkImage(dark_image=Image.open("img/clock_2.png"), size=(50,50))
+        self.watch = ct.CTkImage(dark_image=Image.open("img/watch.png"), size=(50,50))
+        self.calendar = ct.CTkImage(dark_image=Image.open("img/calendar.png"), size=(50,50))
+        
         #Fonts
         self.Title = ct.CTkFont(family="Consolas", size=35)
         self.BoxText = ct.CTkFont(family="Consolas", size=12)
@@ -22,6 +30,21 @@ class Shutdown:
         self.tabview.add("Off")
         self.tabview.tab("On").grid_columnconfigure(0, weight=1)
         self.tabview.tab("Off").grid_columnconfigure(0, weight=1)
+        
+        labeltime = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.time)
+        labeltime.place(relx=0.9, rely=0.1, anchor="center")
+        
+        labelClock = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.clock)
+        labelClock.place(relx=0.7, rely=0.1, anchor="center")
+        
+        labelClock_2 = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.clock_2)
+        labelClock_2.place(relx=0.5, rely=0.1, anchor="center")
+        
+        labelWatch = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.watch)
+        labelWatch.place(relx=0.3, rely=0.1, anchor="center")
+        
+        labelCalendar = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.calendar)
+        labelCalendar.place(relx=0.1, rely=0.1, anchor="center")
         
         label = ct.CTkLabel(master=self.tabview.tab("On"), text="Switch off time:")
         label.place(relx=0.5, rely=0.3, anchor="center")
