@@ -96,7 +96,7 @@ class Shutdown:
         try:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
-            #os.system(f"shutdown -s -t {valueConvert}")
+            os.system(f"shutdown -s -t {valueConvert}")
             self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
