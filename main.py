@@ -23,7 +23,7 @@ class Shutdown:
         self.tabview.tab("On").grid_columnconfigure(0, weight=1)
         self.tabview.tab("Off").grid_columnconfigure(0, weight=1)
         
-        label = ct.CTkLabel(master=self.tabview.tab("On"), text="Shutdown in...")
+        label = ct.CTkLabel(master=self.tabview.tab("On"), text="Switch off time:")
         label.place(relx=0.5, rely=0.3, anchor="center")
         label.configure(font=self.Title)
 
