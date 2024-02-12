@@ -82,6 +82,7 @@ class Shutdown:
 
     def TurnOff(self):
         os.system(f"shutdown -a")
+        self.boxText.delete("0.0", tkr.END)
         self.boxText.insert("end", f"Finish Shutdown\n")
 
     def capValue(self):
@@ -89,9 +90,11 @@ class Shutdown:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
             #os.system(f"shutdown -s -t {valueConvert}")
+            self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
         except ValueError as Error:
+            self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("end", f"Error ~ {Error}\n")
     
 if __name__ == "__main__":
