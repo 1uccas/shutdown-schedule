@@ -4,9 +4,9 @@ import os
 
 class Shutdown:
     def __init__(self):
-        self.windows()
+        self.On_windows()
 
-    def windows(self):
+    def On_windows(self):
         self.windows = tkr.Tk() 
         self.windows.geometry("500x500")
         self.windows.title("Shutdown Schedule")
