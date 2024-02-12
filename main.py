@@ -24,6 +24,7 @@ class Shutdown:
         self.Title = ct.CTkFont(family="Consolas", size=35)
         self.BoxText = ct.CTkFont(family="Consolas", size=12)
         
+        #TabView
         self.tabview = ct.CTkTabview(master=self.windows, width=400, height=400)
         self.tabview.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         self.tabview.add("On")
@@ -31,6 +32,7 @@ class Shutdown:
         self.tabview.tab("On").grid_columnconfigure(0, weight=1)
         self.tabview.tab("Off").grid_columnconfigure(0, weight=1)
         
+        #LabelImages
         labeltime = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.time)
         labeltime.place(relx=0.9, rely=0.1, anchor="center")
         
@@ -46,20 +48,24 @@ class Shutdown:
         labelCalendar = ct.CTkLabel(master=self.tabview.tab("On"), text="", image=self.calendar)
         labelCalendar.place(relx=0.1, rely=0.1, anchor="center")
         
+        #Principal Label
         label = ct.CTkLabel(master=self.tabview.tab("On"), text="Switch off time:")
         label.place(relx=0.5, rely=0.3, anchor="center")
         label.configure(font=self.Title)
-
+        
+        #Entry
         self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         self.entry.configure(font=self.BoxText)
         
+        #TextBox
         self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100, corner_radius=15,
                                      border_width=1, border_color="black", text_color="lightgreen")
         
         self.boxText.place(relx=0.5, rely=0.8, anchor=tkr.CENTER)
         self.boxText.configure(font=self.BoxText)
-
+        
+        #Button
         button = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
         button.configure(font=self.BoxText)
@@ -69,6 +75,7 @@ class Shutdown:
         self.windows.mainloop()
     
     def off_windows(self):
+        #Buttons off_windows
         buttonExit = ct.CTkButton(master=self.tabview.tab("Off"), corner_radius=10, text="Exit windows", command=self.exitWindows)
         buttonExit.place(relx=0.3, rely=0.5, anchor=tkr.CENTER)
         buttonExit.configure(font=self.BoxText)
