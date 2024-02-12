@@ -31,7 +31,9 @@ class Shutdown:
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         self.entry.configure(font=self.BoxText)
         
-        self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100)
+        self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100, corner_radius=15,
+                                     border_width=1, border_color="black", text_color="lightgreen")
+        
         self.boxText.place(relx=0.5, rely=0.8, anchor=tkr.CENTER)
         self.boxText.configure(font=self.BoxText)
 
