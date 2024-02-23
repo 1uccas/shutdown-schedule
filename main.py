@@ -9,11 +9,11 @@ class Shutdown:
         
     def optionRadio(self):
         self.selectOption = self.variableButton.get()
-        print(f"Selection option ~ {self.selectOption}")
+        print(f"$ Selection option ~ {self.selectOption}")
         
     def cleanRadio(self):
-        self.selectOption.set(None)
-        print("$ clean Options ~ [X]")
+        self.variableButton.set("")
+        print("$ clean Options ~ ")
 
     def On_windows(self):
         self.windows = tkr.Tk() 
@@ -65,7 +65,7 @@ class Shutdown:
         
         self.variableButton = ct.StringVar()
         
-        radiobutton_1 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="CTkRadioButton 1", variable=self.variableButton ,value=1, command=self.optionButton)
+        radiobutton_1 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="CTkRadioButton 1", variable=self.variableButton ,value=1, command=self.optionRadio)
         radiobutton_1.place(relx=0.5, rely=0.4, anchor="center")
         radiobutton_1.configure(font=self.BoxText)
         
@@ -85,6 +85,10 @@ class Shutdown:
         button = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
         button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
         button.configure(font=self.BoxText)
+        
+        button_2 = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Clean", command=self.cleanRadio)
+        button_2.place(relx=0.4, rely=0.6, anchor=tkr.CENTER)
+        button_2.configure(font=self.BoxText)
         
         self.off_windows()
         
