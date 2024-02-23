@@ -7,9 +7,13 @@ class Shutdown:
     def __init__(self):
         self.On_windows()
         
-    def optionButton(self):
+    def optionRadio(self):
         self.selectOption = self.variableButton.get()
         print(f"Selection option ~ {self.selectOption}")
+        
+    def cleanRadio(self):
+        self.selectOption.set(None)
+        print("$ clean Options ~ [X]")
 
     def On_windows(self):
         self.windows = tkr.Tk() 
