@@ -6,6 +6,15 @@ from PIL import Image
 class Shutdown:
     def __init__(self):
         self.On_windows()
+        
+    def optionRadio(self):
+        selected_value = self.variableRadio.get()
+        self.entry.delete(0, tkr.END)  
+        self.entry.insert(0, selected_value)
+        
+    def cleanOptions(self):
+        self.variableRadio.set("")
+        self.entry.delete(0, "end")
 
     def On_windows(self):
         self.windows = tkr.Tk() 
@@ -53,10 +62,26 @@ class Shutdown:
         label.place(relx=0.5, rely=0.3, anchor="center")
         label.configure(font=self.Title)
         
+        #Radio
+        self.variableRadio = ct.StringVar()
+        
+        radio_15 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="15 minutes", variable=self.variableRadio,value=15, command=self.optionRadio)
+        radio_15.place(relx=0.2, rely=0.4, anchor="center")
+        radio_15.configure(font=self.BoxText)
+        
+        radio_30 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="30 minutes", variable=self.variableRadio,value=30, command=self.optionRadio)
+        radio_30.place(relx=0.5, rely=0.4, anchor="center")
+        radio_30.configure(font=self.BoxText)
+        
+        radio_60 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="60 minutes", variable=self.variableRadio,value=60, command=self.optionRadio)
+        radio_60.place(relx=0.8, rely=0.4, anchor="center")
+        radio_60.configure(font=self.BoxText)
+        
         #Entry
         self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         self.entry.configure(font=self.BoxText)
+        
         
         #TextBox
         self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100, corner_radius=15,
@@ -66,9 +91,13 @@ class Shutdown:
         self.boxText.configure(font=self.BoxText)
         
         #Button
-        button = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
-        button.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
-        button.configure(font=self.BoxText)
+        buttonEnter = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
+        buttonEnter.place(relx=0.3, rely=0.6, anchor=tkr.CENTER)
+        buttonEnter.configure(font=self.BoxText)
+        
+        buttonClean = ct.CTkButton(master=self.tabview.tab("On"), fg_color="darkred", corner_radius=10, text="Clean", command=self.cleanOptions)
+        buttonClean.place(relx=0.7, rely=0.6, anchor=tkr.CENTER)
+        buttonClean.configure(font=self.BoxText)
         
         self.off_windows()
         
@@ -97,6 +126,7 @@ class Shutdown:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
             os.system(f"shutdown -s -t {valueConvert}")
+           
             self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
