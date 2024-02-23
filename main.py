@@ -61,13 +61,12 @@ class Shutdown:
         label.place(relx=0.5, rely=0.3, anchor="center")
         label.configure(font=self.Title)
         
-        #anotherOption
-        
+        #Radio
         self.variableButton = ct.StringVar()
         
-        radiobutton_1 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="CTkRadioButton 1", variable=self.variableButton ,value=1, command=self.optionRadio)
-        radiobutton_1.place(relx=0.5, rely=0.4, anchor="center")
-        radiobutton_1.configure(font=self.BoxText)
+        radio_15 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="15 minutes", variable=self.variableButton ,value=15, command=self.optionRadio)
+        radio_15.place(relx=0.5, rely=0.4, anchor="center")
+        radio_15.configure(font=self.BoxText)
         
         #Entry
         self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
