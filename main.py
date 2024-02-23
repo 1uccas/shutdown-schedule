@@ -90,11 +90,11 @@ class Shutdown:
         
         #Button
         buttonEnter = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Enter", command=self.capValue)
-        buttonEnter.place(relx=0.5, rely=0.6, anchor=tkr.CENTER)
+        buttonEnter.place(relx=0.3, rely=0.6, anchor=tkr.CENTER)
         buttonEnter.configure(font=self.BoxText)
         
-        buttonClean = ct.CTkButton(master=self.tabview.tab("On"), corner_radius=10, text="Clean", command=self.cleanRadio)
-        buttonClean.place(relx=0.4, rely=0.6, anchor=tkr.CENTER)
+        buttonClean = ct.CTkButton(master=self.tabview.tab("On"), fg_color="darkred", corner_radius=10, text="Clean", command=self.cleanRadio)
+        buttonClean.place(relx=0.7, rely=0.6, anchor=tkr.CENTER)
         buttonClean.configure(font=self.BoxText)
         
         self.off_windows()
