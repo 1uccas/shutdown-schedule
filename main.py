@@ -8,11 +8,11 @@ class Shutdown:
         self.On_windows()
         
     def optionRadio(self):
-        self.selectOption = self.variableButton.get()
+        self.selectOption = self.variableRadio.get()
         print(f"$ Selection option ~ {self.selectOption}")
         
     def cleanRadio(self):
-        self.variableButton.set("")
+        self.variableRadio.set("")
         print("$ clean Options ~ ")
 
     def On_windows(self):
@@ -62,11 +62,19 @@ class Shutdown:
         label.configure(font=self.Title)
         
         #Radio
-        self.variableButton = ct.StringVar()
+        self.variableRadio = ct.StringVar()
         
-        radio_15 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="15 minutes", variable=self.variableButton ,value=15, command=self.optionRadio)
-        radio_15.place(relx=0.5, rely=0.4, anchor="center")
+        radio_15 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="15 minutes", variable=self.variableRadio,value=15, command=self.optionRadio)
+        radio_15.place(relx=0.2, rely=0.4, anchor="center")
         radio_15.configure(font=self.BoxText)
+        
+        radio_30 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="30 minutes", variable=self.variableRadio,value=30, command=self.optionRadio)
+        radio_30.place(relx=0.5, rely=0.4, anchor="center")
+        radio_30.configure(font=self.BoxText)
+        
+        radio_60 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="60 minutes", variable=self.variableRadio,value=60, command=self.optionRadio)
+        radio_60.place(relx=0.8, rely=0.4, anchor="center")
+        radio_60.configure(font=self.BoxText)
         
         #Entry
         self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
