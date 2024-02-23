@@ -13,6 +13,7 @@ class Shutdown:
         
     def cleanRadio(self):
         self.variableRadio.set("")
+        self.entry.delete(0, "end")
         print("$ clean Options ~ ")
 
     def On_windows(self):
