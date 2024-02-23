@@ -8,13 +8,13 @@ class Shutdown:
         self.On_windows()
         
     def optionRadio(self):
-        self.selectOption = self.variableRadio.get()
-        print(f"$ Selection option ~ {self.selectOption}")
+        selected_value = self.variableRadio.get()
+        self.entry.delete(0, tkr.END)  
+        self.entry.insert(0, selected_value)
         
     def cleanOptions(self):
         self.variableRadio.set("")
         self.entry.delete(0, "end")
-        print("$ clean Options ~ ")
 
     def On_windows(self):
         self.windows = tkr.Tk() 
@@ -82,6 +82,7 @@ class Shutdown:
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
         self.entry.configure(font=self.BoxText)
         
+        
         #TextBox
         self.boxText = ct.CTkTextbox(self.tabview.tab("On"), width=400, height=100, corner_radius=15,
                                      border_width=1, border_color="black", text_color="lightgreen")
@@ -116,7 +117,7 @@ class Shutdown:
         exit()
 
     def TurnOff(self):
-        #os.system(f"shutdown -a")
+        os.system(f"shutdown -a")
         self.boxText.delete("0.0", tkr.END)
         self.boxText.insert("end", f"Finish Shutdown\n")
 
@@ -124,7 +125,8 @@ class Shutdown:
         try:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
-            #os.system(f"shutdown -s -t {valueConvert}")
+            os.system(f"shutdown -s -t {valueConvert}")
+           
             self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
