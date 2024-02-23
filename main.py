@@ -11,7 +11,7 @@ class Shutdown:
         self.selectOption = self.variableRadio.get()
         print(f"$ Selection option ~ {self.selectOption}")
         
-    def cleanRadio(self):
+    def cleanOptions(self):
         self.variableRadio.set("")
         self.entry.delete(0, "end")
         print("$ clean Options ~ ")
@@ -94,7 +94,7 @@ class Shutdown:
         buttonEnter.place(relx=0.3, rely=0.6, anchor=tkr.CENTER)
         buttonEnter.configure(font=self.BoxText)
         
-        buttonClean = ct.CTkButton(master=self.tabview.tab("On"), fg_color="darkred", corner_radius=10, text="Clean", command=self.cleanRadio)
+        buttonClean = ct.CTkButton(master=self.tabview.tab("On"), fg_color="darkred", corner_radius=10, text="Clean", command=self.cleanOptions)
         buttonClean.place(relx=0.7, rely=0.6, anchor=tkr.CENTER)
         buttonClean.configure(font=self.BoxText)
         
