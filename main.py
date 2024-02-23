@@ -6,6 +6,10 @@ from PIL import Image
 class Shutdown:
     def __init__(self):
         self.On_windows()
+        
+    def optionButton(self):
+        self.selectOption = self.variableButton.get()
+        print(f"Selection option ~ {self.selectOption}")
 
     def On_windows(self):
         self.windows = tkr.Tk() 
@@ -53,6 +57,14 @@ class Shutdown:
         label.place(relx=0.5, rely=0.3, anchor="center")
         label.configure(font=self.Title)
         
+        #anotherOption
+        
+        self.variableButton = ct.StringVar()
+        
+        radiobutton_1 = ct.CTkRadioButton(master=self.tabview.tab("On"), text="CTkRadioButton 1", variable=self.variableButton ,value=1, command=self.optionButton)
+        radiobutton_1.place(relx=0.5, rely=0.4, anchor="center")
+        radiobutton_1.configure(font=self.BoxText)
+        
         #Entry
         self.entry = ct.CTkEntry(master=self.tabview.tab("On"), placeholder_text="ex: 25min")
         self.entry.place(relx=0.5, rely=0.5, anchor=tkr.CENTER)
@@ -88,7 +100,7 @@ class Shutdown:
         exit()
 
     def TurnOff(self):
-        os.system(f"shutdown -a")
+        #os.system(f"shutdown -a")
         self.boxText.delete("0.0", tkr.END)
         self.boxText.insert("end", f"Finish Shutdown\n")
 
@@ -96,7 +108,7 @@ class Shutdown:
         try:
             e_text=int(self.entry.get())
             valueConvert = int(e_text * 60)
-            os.system(f"shutdown -s -t {valueConvert}")
+            #os.system(f"shutdown -s -t {valueConvert}")
             self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
             
