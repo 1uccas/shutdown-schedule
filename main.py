@@ -9,7 +9,7 @@ class Shutdown:
         
     def startTimer_15(self):
         #start stopwatch in C
-        self.path_15minutes = 'timer\\timer.exe'
+        self.path_15minutes = 'timer\\15\\timer.exe'
         self.startTimer = os.startfile(self.path_15minutes, 'open')
         
     def optionRadio(self):
