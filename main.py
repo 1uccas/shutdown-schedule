@@ -12,6 +12,11 @@ class Shutdown:
         self.path_15minutes = 'timer\\15\\timer.exe'
         self.startTimer = os.startfile(self.path_15minutes, 'open')
         
+    def startTimer_30(self):
+        #start stopwatch in C
+        self.path_30minutes = 'timer\\30\\timer.exe'
+        self.startTimer = os.startfile(self.path_30minutes, 'open')
+        
     def optionRadio(self):
         selected_value = self.variableRadio.get()
         self.entry.delete(0, tkr.END)  
