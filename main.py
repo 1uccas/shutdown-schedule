@@ -132,7 +132,10 @@ class Shutdown:
             valueConvert = int(e_text * 60)
             os.system(f"shutdown -s -t {valueConvert}")
             
-            self.startTimer_15()
+            if(e_text == 15):
+                self.startTimer_15()
+            elif(e_text == 30):
+                self.startTimer_30()
            
             self.boxText.delete("0.0", tkr.END)
             self.boxText.insert("0.0", f"Your windows will shutdown in ~ {e_text}:00 min\n")
